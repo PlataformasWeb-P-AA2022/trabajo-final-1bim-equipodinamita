@@ -1,0 +1,2 @@
+Establecimiento(codigoAMIE=linea[0], nombre=linea[1], sostenimiento=linea[9], tipoEducacion=linea[10], modalidad=linea[11], jornada=linea[12], acceso=linea[13],numEstudiantes=int(linea[14]), numDocentes=int(linea[15]))
+
