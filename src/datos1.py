@@ -19,20 +19,37 @@ session = Session()
 
 print("Consulta 1 \n Todos los establecimientos que pertenecen al Código División Política Administrativa Parroquia con valor 110553")
 
-establecimientos = session.query(Establecimiento, Parroquia).join(Parroquia).filter(Parroquia.codigo.like('110553')).all()
+establecimientos1 = session.query(Establecimiento, Parroquia).join(Parroquia).filter(Parroquia.codigo.like('110553')).all()
 
-
-for s in establecimientos:
+for s in establecimientos1:
     print("%s" % (s))
     print("---------")
 
 
-print("Consulta 2 \n Todos los establecimientos que pertenecen al Código División Política Administrativa Parroquia con valor 110553")
+print("Consulta 2 \n Todos los establecimientos de la provincia del oro")
 
-establecimientos = session.query(Establecimiento, Parroquia, Canton, Provincia).join(Establecimiento.parroquia, Parroquia.canton, Canton.provincia).filter(Provincia.nombre.like('EL ORO')).all()
+establecimientos2 = session.query(Establecimiento, Parroquia, Canton, Provincia).join(Establecimiento.parroquia, Parroquia.canton, Canton.provincia).filter(Provincia.nombre.like('EL ORO')).all()
 
 
-for s in establecimientos:
+for s in establecimientos2:
+    print("%s" % (s))
+    print("---------")
+
+print("Consulta 3 \n Todos los establecimientos de la Portovelo")
+
+establecimientos3 = session.query(Establecimiento, Parroquia, Canton, Provincia).join(Establecimiento.parroquia, Parroquia.canton, Canton.provincia).filter(Canton.nombre.like('PORTOVELO')).all()
+
+
+for s in establecimientos3:
+    print("%s" % (s))
+    print("---------")
+
+print("Consulta 4 \n Todos los establecimientos de la Zamora")
+
+establecimientos4 = session.query(Establecimiento, Parroquia, Canton, Provincia).join(Establecimiento.parroquia, Parroquia.canton, Canton.provincia).filter(Canton.nombre.like('ZAMORA')).all()
+
+
+for s in establecimientos4:
     print("%s" % (s))
     print("---------")
 
